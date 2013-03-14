@@ -50,3 +50,16 @@ if __name__ == '__main__':
     b = Compose. map (fst)
     c = Compose. a . b
     print 'result:', c([(0, 2), (0, 4), (1, 3)])
+
+    car = fst
+    cdr = lambda x: x[1:]
+    caar = Compose. car . car
+    cdar = Compose. cdr . car
+    cadr = Compose. car . cdr
+    caddr = Compose. car . cdr . cdr
+    print 'result:', caar(((1,2),(3,4),5))
+    print 'result:', cdar(((1,2),(3,4),5))
+    print 'result:', cadr(((1,2),(3,4),5))
+    print 'result:', caddr(((1,2),(3,4),5))
+
+
