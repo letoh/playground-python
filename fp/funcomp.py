@@ -40,12 +40,13 @@ if __name__ == '__main__':
     print 'result:', a(3)
     print 'result:', a(4)
     
-    from operator import itemgetter
+    from operator import eq, itemgetter
+    eq0 = partial(eq, 0)
     fst = itemgetter(0)
-    a = Compose. len . filter (lambda x: x == 0) . map (fst)
+    a = Compose. len . filter (eq0) . map (fst)
     print 'result:', a([(0, 2), (0, 4), (1, 3)])
 
-    a = Compose. len . filter (lambda x: x == 0)
+    a = Compose. len . filter (eq0)
     b = Compose. map (fst)
     c = Compose. a . b
     print 'result:', c([(0, 2), (0, 4), (1, 3)])
